@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0 fs-5">Registrar Nueva Herramienta</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('agregar') }}" method="POST">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label fw-bold">Nombre de la Herramienta</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ej: Esmeril Angular">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label fw-bold">Descripción / Especificaciones</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required placeholder="Describe qué es y para qué sirve..."></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-success">Guardar Herramienta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
