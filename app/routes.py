@@ -5,7 +5,7 @@ from app.models import Herramienta
 # Ruta principal: Ver el catálogo de herramientas
 @app.route("/")
 def index():
-    herramientas = Herramienta.query.order_by(Herramienta.id.desc()).all()
+    herramientas = Herramienta.query.order_by(Herramienta.id.asc()).all()
     return render_template("index.html", herramientas=herramientas)
 
 # Ruta para agregar herramientas manualmente
