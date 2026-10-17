@@ -2,14 +2,20 @@ from flask import current_app as app, render_template, request, redirect, url_fo
 from app import db
 from app.models import Herramienta
 
-# Ruta principal: Ver el catálogo de herramientas
+# Página de inicio / Dashboard principal
 @app.route("/")
+def home():
+    total_herramientas = Herramienta.query.count()
+    return render_template("home.html", total_herramientas=total_herramientas)
+
+# Catálogo de Herramientas
+@app.route("/herramientas")
 def index():
     herramientas = Herramienta.query.order_by(Herramienta.id.asc()).all()
     return render_template("index.html", herramientas=herramientas)
 
-# Ruta para agregar herramientas manualmente
-@app.route("/agregar", methods=["GET", "POST"])
+# Registrar Herramienta
+@app.route("/herramientas/agregar", methods=["GET", "POST"])
 def agregar():
     if request.method == "POST":
         nombre = request.form.get("nombre")

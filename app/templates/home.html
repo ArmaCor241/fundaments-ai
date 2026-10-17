@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center border">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-dark">🛠️ Sistema de Gestión - Fundaments AI</h1>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <!-- Módulo Herramientas -->
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="display-4 text-primary mb-3">🧰</div>
+                <h4 class="card-title fw-bold">Herramientas</h4>
+                <p class="card-text text-muted">
+                    Administra el inventario de herramientas, consulta especificaciones o añade nuevas entradas.
+                </p>
+                <div class="mb-3">
+                    <span class="badge bg-info text-dark fs-6">{{ total_herramientas }} Registradas</span>
+                </div>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-4 text-center">
+                <a href="{{ url_for('index') }}" class="btn btn-primary w-100 mb-2">Ver Catálogo</a>
+                <a href="{{ url_for('agregar') }}" class="btn btn-outline-success btn-sm w-100">➕ Agregar Herramienta</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espacio preparado para futura Clase / Módulo 2 -->
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0 border-dashed">
+            <div class="card-body text-center p-4">
+                <div class="display-4 text-secondary mb-3">📦</div>
+                <h4 class="card-title fw-bold text-muted">Próximo Módulo</h4>
+                <p class="card-text text-muted">
+                    Espacio reservado para agregar nuevas entidades o clases al sistema (ej. Categorías, Materiales, Préstamos).
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-4 text-center">
+                <button class="btn btn-secondary w-100" disabled>En Desarrollo</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
